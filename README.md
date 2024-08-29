@@ -1,88 +1,61 @@
-# Kudosware
+Kudosware Signup Application
+Overview
+This is a signup application for Kudosware, a job-seeker platform. Users can submit their resumes and personal information through the frontend form, which is handled by a backend server using Express, MongoDB, and Multer for file uploads.
 
-Welcome to Kudosware! This is a simple web application where users can sign up, upload their resumes, and get their details saved securely in MongoDB. 
+Features
+User signup form with fields for name, email, phone number, password, and resume upload.
+Password validation to ensure a minimum length of 6 characters.
+File upload for resumes with supported formats: PDF, DOC, DOCX.
+Backend server with Express to handle form submissions and store data in MongoDB.
+Resume file storage in the uploads directory.
+Prerequisites
+Node.js (v14 or higher recommended)
+MongoDB (a cloud instance or local setup)
+Setup
+1. Clone the Repository
+bash
+Copy code
+git clone <repository-url>
+cd <repository-directory>
+2. Install Dependencies
+Run the following command to install the required Node.js packages:
 
-## What’s Inside
+bash
+Copy code
+npm install
+3. Configure Environment Variables
+Create a .env file in the root of the project directory and add your MongoDB URI:
 
-- **User Signup**: Users can register with their name, email, phone number, and a password.
-- **Resume Upload**: Users can upload their resume, which gets saved on the server.
-- **Secure Storage**: Passwords are hashed using bcrypt for security.
-- **MongoDB Integration**: User data and resumes are stored in MongoDB.
+php
+Copy code
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority
+Replace <username>, <password>, <cluster-url>, and <database> with your MongoDB credentials and connection details.
 
-## How to Get Started
+4. Create the uploads Directory
+Ensure that the uploads directory exists in the root of the project. This directory is used to store uploaded resume files.
 
-Here’s a quick guide to get Kudosware up and running on your local machine.
+bash
+Copy code
+mkdir uploads
+5. Start the Server
+Run the following command to start the server:
 
-### Prerequisites
+bash
+Copy code
+npm start
+The server will be running at http://localhost:3001.
 
-Before you begin, make sure you have the following:
+Frontend
+index.html: The signup form for job seekers.
+styles.css: The CSS file for styling the signup form.
+Backend
+script.js: JavaScript file for client-side validation of the signup form.
+server.js: The main server file using Express to handle form submissions and interact with MongoDB.
+Testing
+You can test the application by navigating to the frontend URL in your browser and submitting the signup form. Verify that the data is correctly saved in your MongoDB database and that the resume files are uploaded to the uploads directory.
 
-- [Node.js](https://nodejs.org/) (Version 18 or later is preferred)
-- [MongoDB](https://www.mongodb.com/) (You need either a MongoDB Atlas cluster or a local MongoDB instance)
-- [Git](https://git-scm.com/) (Optional, for version control)
+Deployment
+For deployment, you can host the application on a free platform like Heroku, Vercel, or Netlify. Ensure you configure environment variables and adjust file paths as needed for production.
 
-### Setting It Up
-
-1. **Clone the Repo:**
-
-    ```bash
-    git clone https://github.com/your-username/kudosware.git
-    cd kudosware
-    ```
-
-2. **Install Dependencies:**
-
-    ```bash
-    npm install
-    ```
-
-3. **Configure Environment Variables:**
-
-    Create a `.env` file in the root directory of your project and add your MongoDB connection string:
-
-    ```plaintext
-    MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
-    ```
-
-4. **Create the Uploads Directory:**
-
-    Make sure the `uploads` directory exists for storing resumes:
-
-    ```bash
-    mkdir uploads
-    ```
-
-5. **Start the Server:**
-
-    ```bash
-    node server.js
-    ```
-
-    Your server will be up and running at `http://localhost:3001`.
-
-### How to Use
-
-- **Signup**: Head to `http://localhost:3001` in your browser. You’ll find the signup form there where users can enter their details and upload their resumes.
-- **Success Page**: After a successful signup, users will be redirected to `success.html`.
-
-### Project Structure
-
-- **/public**: This folder has all the static files like HTML, CSS, and JavaScript.
-- **/uploads**: This is where the uploaded resumes are stored.
-- **server.js**: The main file that sets up everything—Express server and MongoDB connection.
-- **.env**: This file holds the environment variables, including your MongoDB URI.
-
-### Common Issues
-
-- **MongoDB Connection**: If you see errors related to MongoDB, double-check your `.env` file for typos in the connection string. Make sure your MongoDB instance is accessible.
-- **Directory Problems**: Ensure the `uploads` directory exists and has the right permissions.
-
-### Contributing
-
-Want to help out? Feel free to fork the repo and send a pull request with your changes. We’d love to see your contributions!
-
-### License
-
-This project is licensed under the MIT License. Check out the [LICENSE](LICENSE) file for more details.
-
----
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
