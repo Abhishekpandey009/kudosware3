@@ -36,7 +36,7 @@ if (!mongoURI) {
 
 console.log('MongoDB URI:', mongoURI); // Debug log
 
-mongoose.connect(mongoURI)
+mongoose.connect('mongodb+srv://rajandraprasdpandey:RZ6bvVkFA1Q8mjhK@job-seeker-db.qme4o.mongodb.net/kudosware?retryWrites=true&w=majority')
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.error('MongoDB connection error:', err));
 
